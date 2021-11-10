@@ -5,8 +5,11 @@
       <h2 v-for="(peca, index) in productDesc.split('<br>')" :key="index">{{ peca.trim() }}</h2>
       <img :src="productImage" width="250" alt="Photo of a computer">
       <h2 v-if="productPrice < 1000">{{ productPrice }}€</h2>
-      <h2 v-if="productAvailability">Disponível</h2>
-      <h2 v-else>Não Disponível</h2>
+      <!-- Alternativa 1 -->
+      <!-- <h2 v-if="productAvailability">Disponível</h2>
+      <h2 v-else>Não Disponível</h2> -->
+      <!-- Alternativa 2 -->
+      <h2>{{ productAvailability ? "Disponível" : "Não Disponível" }}</h2>
     </div>
     <div>
       <button @click="productPrice = 1200">Repor preço</button>
